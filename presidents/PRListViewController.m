@@ -20,19 +20,6 @@
 
 @implementation PRListViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"presidents" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath options:NSDataReadingUncached error:nil];
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingOptions)kNilOptions error:nil];
-    
-    self.presidents = [PRPresident presidentsArrayFromJsonArray:json];
-    
-    self.view.backgroundColor = [UIColor presidentsColor];
-
-}
-
 #pragma UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.presidents.count;
